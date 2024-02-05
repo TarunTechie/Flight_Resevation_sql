@@ -1,0 +1,11 @@
+$banglore#mysore (mysore palace,chamundi hills,krs backwater),manglore(kudremuk,kumaraparvatha,udupi),madikeri,ooty,shaklespura(resorts,honavara)
+$hyderabad#ramoji film city,charminar,NTR gardens,husain sagar lake,laad bazar,begum bazar(shopping).
+$cochin#kochi(cherai beach,jew town,santa cruz cathedral basilica),munnar(tea gardens,munar hiking),alappuzha(boating,backwaters),
+$panjim#north goa(baga,anjuna,aguada fort,se cathedral),south goa(butterfly beach,agonda ,palolem),casino.
+$mumbai#taj hotel,gateway of india,marine drive,elephanta caves,kolapura mahalakshmi temple,siridi,ellora caves.
+$chennai#pondicherry(paradise,rock beach,planitorium,aurovile),madurai(madurameenakshi)
+$bagdogra#gangtok,lachung,lachen,natula pass,darjeeling.
+$jaipur#hawamahal,amber fort,jantar mantar,udaipur,lake pichola.
+$bhopal#upper lake,gohar mahal,bharat bhawan,van vihar national park.
+$lucknow#bada imambara, rumi darwaza,chota imambara,gomti riverfront, la martiniere cllge.
+$srinagar#gulmarg,fotu la,sonamarg,betab valley,yousmarg,doodhpathri.

@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-public class Flight
+public class Flight extends iternary
 {
     static Scanner sc=new Scanner(System.in);
     static File f_file=new File("lib//Flights.txt");

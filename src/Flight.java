@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,32 +7,27 @@ import java.io.PrintWriter;
 public class Flight extends iternary
 {
     static Scanner sc=new Scanner(System.in);
-    static File f_file=new File("lib//Flights.txt");
+    static File f_file=new File(".//lib//Flights.txt");
     static String f_details[]={"FLIGHT NUMBER","FLIGHT NAME","SOURCE","DESTINATION","DEPARTURE TIMING"}; 
     static String flight[]=new String[5];//contains the details from the file
+    static Flight f=new Flight();
     //add flight
-    public void Add_Flight()throws FileNotFoundException
+    public void Add_Flight()throws Exception
     {
         PrintWriter pw=new PrintWriter(f_file);
-        String details[]=new String[5];
         System.out.println("Enter the number of flights");
         int n=sc.nextInt();
+        ArrayList <String> values=new ArrayList<String>();
+        String query="insert into flight (flno,flname,source,destination,detime) values(?,?,?,?,?);";
         for(int i=0;i<n;i++)
         {
-            String temp="";
             System.out.println("FLIGHT "+(i+1));
             for(String d:f_details)
             {
                 System.out.println("Enter "+d);
-                temp=temp+sc.next()+",";
+                values.add(sc.next());
             }
-            details[i]=temp;
-        }
-        for(String d:details)
-        {
-            if(d==null)
-            break;
-            pw.write(d+"#");//writes to the file
+            f.write(query,values);
         }
         pw.close();
     }
@@ -119,7 +115,7 @@ public class Flight extends iternary
         }
     }
     //calls all the functions under the flight module
-    public void flightcall() throws FileNotFoundException
+    public void flightcall() throws Exception
     {
         Flight f= new Flight();
         boolean control=true;
@@ -138,6 +134,7 @@ public class Flight extends iternary
                     break;
                 case 2:
                     f.read_flight();
+                    f.read();
                     System.out.println("Enter the flight number to delete");
                     f.Delete_Flight(sc.next());
                     break;

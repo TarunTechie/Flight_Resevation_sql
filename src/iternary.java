@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class iternary {
+public class iternary extends test{
 
     public void getplace() throws Exception {
         File i_file = new File("D://PROGRAMS//Flight_Reservation -sql//lib//flight itinerary.txt");

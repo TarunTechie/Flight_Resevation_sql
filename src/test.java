@@ -27,18 +27,21 @@ public class test {
         try{
             Connection connect =DriverManager.getConnection(url+db, user, password);
             PreparedStatement stm= connect.prepareStatement(query);
-            stm.setString(1, values.get(0).toString());
-            stm.setString(2, values.get(1).toString());
-            stm.setString(3, values.get(2).toString());
-            stm.setString(4, values.get(3).toString());
-            stm.setString(5, values.get(4).toString());
+            for(int i=0;i<values.size();i++)
+            {
+                stm.setString(i+1, values.get(i).toString());
+            }
             stm.executeUpdate();
-            connect.close();
             System.out.println("VALUES ENTERED SUCCESFULLY");
+            connect.close();
         }
         catch(Exception e)
         {
             System.out.println(e);
         }
+    }
+    public void delete(String query)throws Exception
+    {
+        Connection connect =DriverManager.getConnection(url+db, user, password);
     }
 }

@@ -14,7 +14,6 @@ public class Flight extends iternary
     //add flight
     public void Add_Flight()throws Exception
     {
-        PrintWriter pw=new PrintWriter(f_file);
         System.out.println("Enter the number of flights");
         int n=sc.nextInt();
         ArrayList <String> values=new ArrayList<String>();
@@ -28,8 +27,8 @@ public class Flight extends iternary
                 values.add(sc.next());
             }
             f.write(query,values);
+            values.clear();
         }
-        pw.close();
     }
     //delete flight
     public void Delete_Flight(String fn)throws FileNotFoundException

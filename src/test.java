@@ -40,8 +40,11 @@ public class test {
             System.out.println(e);
         }
     }
-    public void delete(String query)throws Exception
+    public void delete(String query,String value)throws Exception
     {
         Connection connect =DriverManager.getConnection(url+db, user, password);
+        PreparedStatement stm= connect.prepareStatement(query);
+        stm.setString(1, value);
+        stm.executeUpdate();
     }
 }

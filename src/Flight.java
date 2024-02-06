@@ -3,11 +3,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 
 public class Flight extends iternary {
     static Scanner sc = new Scanner(System.in);
-    static File f_file = new File(".//lib//Flights.txt");
     static String f_details[] = { "FLIGHT NUMBER", "FLIGHT NAME", "SOURCE", "DESTINATION", "DEPARTURE TIMING" };
     static String flight[] = new String[5];// contains the details from the file
     static Flight f = new Flight();
@@ -53,33 +51,15 @@ public class Flight extends iternary {
     }
 
     // display flight
-    public void Display_Flight() {
-        System.out.println(Arrays.toString(f_details).replace(",", '\t' + "|"));
-        for (String d : flight) {
-            if (d == null)
-                break;
-            System.out.println(d.replace(",", '\t' + "|"));
-        }
+    public void Display_Flight()throws Exception {
+        f.search("select * from flight",f_details);
     }
-
-    // reads the file
-    public void read_flight() throws FileNotFoundException {
-        int n = 0;
-        Arrays.fill(flight, null);
-        Scanner f = new Scanner(f_file);
-        f.useDelimiter("#");
-        while (f.hasNext()) {
-            flight[n] = f.next();
-            n++;
-        }
-    }
-
     // calls all the functions under the flight module
     public void flightcall() throws Exception {
         Flight f = new Flight();
         boolean control = true;
         while (control) {
-            System.out.println("Enter 1 to Add A Flight");
+            System.out.println("\n Enter 1 to Add A Flight");
             System.out.println("Enter 2 to Delete A Flight");
             System.out.println("Enter 3 to Search A Flight");
             System.out.println("Enter 4 to Display A Flight");
@@ -95,12 +75,10 @@ public class Flight extends iternary {
                     f.Delete_Flight(sc.next());
                     break;
                 case 3:
-                    f.read_flight();
                     System.out.println("Enter the flight number to search");
                     f.Search_Flight(sc.next());
                     break;
                 case 4:
-                    f.read_flight();
                     f.Display_Flight();
                     break;
                 case 0:

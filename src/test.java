@@ -1,6 +1,5 @@
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 public class test {
     static String url = "jdbc:mysql://localhost:3306/";
     static String user = "root";
@@ -46,5 +45,23 @@ public class test {
         PreparedStatement stm= connect.prepareStatement(query);
         stm.setString(1, value);
         stm.executeUpdate();
+    }
+    public void search(String query,String details[])throws Exception
+    {
+        Connection connect =DriverManager.getConnection(url+db, user, password);
+        PreparedStatement stm=connect.prepareStatement(query);
+        ResultSet rs=stm.executeQuery();
+        for (String string : details) {
+            System.out.print(string+"\t");
+        }
+        while(rs.next())
+        {
+            int i=1;
+            System.out.println();
+            for (String string : details) {
+                System.out.print(rs.getString(i)+"\t \t");
+                i++;
+            }
+        }
     }
 }

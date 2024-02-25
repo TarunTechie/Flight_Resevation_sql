@@ -1,8 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.io.File;
-import java.io.FileNotFoundException;
 
 public class Flight extends iternary {
     static Scanner sc = new Scanner(System.in);
@@ -22,38 +20,28 @@ public class Flight extends iternary {
                 System.out.println("Enter " + d);
                 values.add(sc.next());
             }
-            f.write(query, values);
+            f.create(query, values);
             values.clear();
         }
     }
 
     // delete flight
     public void Delete_Flight(String fn) throws Exception {
-        String query="delete from flight where flno=(?)";
+        String query = "delete from flight where flno=(?)";
         f.delete(query, fn);
     }
 
-    // searchs for flight
-    public void Search_Flight(String fn) {
-        boolean f = true;
-        for (String d : flight) {
-            if (d == null)
-                break;
-            if (d.startsWith(fn)) {
-                System.out.println(Arrays.toString(f_details).replace(",", '\t' + "|"));
-                System.out.println(d.replace(",", '\t' + "|"));
-                f = false;
-                break;
-            }
-        }
-        if (f)
-            System.out.println("FLIGHT NOT FOUND");
+    // search for flight
+    public void Search_Flight(String fn) throws Exception{
+        String query="select * from flight where flno=(?)";
+        search(fn, query, f_details);
     }
 
     // display flight
-    public void Display_Flight()throws Exception {
-        f.search("select * from flight",f_details);
+    public void Display_Flight() throws Exception {
+        f.display("select * from flight", f_details);
     }
+
     // calls all the functions under the flight module
     public void flightcall() throws Exception {
         Flight f = new Flight();
@@ -70,7 +58,6 @@ public class Flight extends iternary {
                     f.Add_Flight();
                     break;
                 case 2:
-                    f.read();
                     System.out.println("Enter the flight number to delete");
                     f.Delete_Flight(sc.next());
                     break;

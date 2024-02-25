@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class iternary extends test{
+public class iternary extends database {
 
     public void getplace() throws Exception {
         File i_file = new File("D://PROGRAMS//Flight_Reservation -sql//lib//flight itinerary.txt");
@@ -12,10 +12,9 @@ public class iternary extends test{
         System.out.println("Enter the destination");
         String search = sc.next();
         isc.useDelimiter("$");
-        while(isc.hasNext())
-        {
-            String a=isc.nextLine();
-            String place[]=a.split("#");
+        while (isc.hasNext()) {
+            String a = isc.nextLine();
+            String place[] = a.split("#");
             map.put(place[0].replace("$", ""), place[1]);
         }
         System.out.println(map.get(search));
